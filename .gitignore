@@ -1,0 +1,18 @@
+# Node.js dependencies
+**/node_modules/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+*.tfvars
+!*.tfvars.example

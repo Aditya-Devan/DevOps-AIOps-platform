@@ -3,8 +3,13 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "subnet_ids" {
-  description = "List of subnet IDs where nodes will be deployed"
+variable "cluster_subnet_ids" {
+  description = "Public and private subnets used by the EKS cluster"
+  type        = list(string)
+}
+
+variable "node_subnet_ids" {
+  description = "Private subnets used by EKS worker nodes"
   type        = list(string)
 }
 

@@ -2,6 +2,17 @@ output "vpc_id" {
   value = aws_vpc.vpc.id
 }
 
-output "subnet_ids" {
-  value = aws_subnet.subnets[*].id
+output "public_subnet_ids" {
+  value = aws_subnet.public[*].id
+}
+
+output "private_subnet_ids" {
+  value = aws_subnet.private[*].id
+}
+
+output "all_subnet_ids" {
+  value = concat(
+    aws_subnet.public[*].id,
+    aws_subnet.private[*].id
+  )
 }

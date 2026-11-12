@@ -1,31 +1,39 @@
 variable "region" {
-  description="The name of the region"
-  type = string
+  description = "The name of the region"
+  type        = string
 }
 
 variable "vpc_name" {
   description = "VPC name"
-  type = string
+  type        = string
 }
 
 variable "vpc_cidr" {
   description = "VPC CIDR Value"
-  type = string
+  type        = string
 }
 
-variable "subnets" {
-  description = "List of subnets"
+variable "public_subnets" {
+  description = "Public subnets for internet-facing load balancers"
   type = list(object({
-    name                      = string
-    cidr_block                = string
-    availability_zone         = string
+    name              = string
+    cidr_block        = string
+    availability_zone = string
   }))
 }
 
+variable "private_subnets" {
+  description = "Private subnets for EKS worker nodes"
+  type = list(object({
+    name              = string
+    cidr_block        = string
+    availability_zone = string
+  }))
+}
 
 variable "cluster_name" {
   description = "The name of the Kubernetes Cluster"
-  type = string
+  type        = string
 }
 
 variable "node_group_name" {
@@ -59,7 +67,7 @@ variable "max_size" {
 }
 
 variable "disk_size" {
-  type        = number
+  type = number
 }
 
 variable "repositories" {

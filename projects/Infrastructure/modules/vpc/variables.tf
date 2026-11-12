@@ -6,15 +6,22 @@ variable "cidr_block" {
   type = string
 }
 
-variable "availability_zones" {
-  type = list(string)
-}
-
-variable "subnet_cidrs" {
-  type = list(string)
-}
-
 variable "cluster_name" {
-  description = "EKS cluster name for subnet tagging"
-  type        = string
+  type = string
+}
+
+variable "public_subnets" {
+  type = list(object({
+    name              = string
+    cidr_block        = string
+    availability_zone = string
+  }))
+}
+
+variable "private_subnets" {
+  type = list(object({
+    name              = string
+    cidr_block        = string
+    availability_zone = string
+  }))
 }
