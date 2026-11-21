@@ -16,3 +16,4 @@
 *.log
 *.tfvars
 !*.tfvars.example
+gitops/secrets.yml
